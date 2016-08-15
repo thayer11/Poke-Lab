@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css-only/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.min.css">
+<script src="https://cdn.rawgit.com/esvit/ng-table/1.0.0/dist/ng-table.js"></script>
+</head>
+<body ng-app="ngFun">
+<current-weather city="Denver"></current-weather>
+{{ "hola!".toUpperCase() }}
+{{ ['s','w','e','e','t','n','e','s','s'].join('') }}
+<div ng-controller="PokemonController">
+	 <h1>Trainer: {{trainer.name}}</h1>
+	<span>Enter your name:</span>
+    <input ng-model="trainer.name"/>
+	<table class = "table table-striped">
+		<tr>
+			<th> Ndex </th>
+			<th> Name </th> 
+			<th> Type </th>
+		</tr>
+		<tr>
+			<tr ng-repeat="poke in pokemon">
+			<td> {{poke.Ndex}} </td>
+			<td> {{poke.name}} </td> 
+			<td> {{poke.type}} </td>
+		</tr>
+	<button ng-click="count = count + 1" ng-init="count=0">
+  Add a critter
+</button>
+<span>
+  count: {{count}}
+</span>
+	</table>
+	<pre> {{ catchphrase | uppercase}}
+<label>Click me: <input type="checkbox" ng-model="check" ng-init="checked=true" /></label><br/>
+
+<span ng-if="check" class="animate-if">
+  You found a Pokemon.
+</span>
+Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br/>
+<div>
+  <div class="check-element animate-hide" ng-show="checked">
+    <span class="glyphicon glyphicon-thumbs-up"></span> You found one of the little fuckers. Congrats!
+  </div>
+</div>
+<div>
+  <div class="check-element animate-hide" ng-hide="checked">
+    <span class="glyphicon glyphicon-thumbs-down"></span> Keep looking. They are out there. 
+  </div>
+<table ng-table="vm.tableParams" class="table" show-filter="true">
+    <tr ng-repeat="user in $data">
+        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+            {{user.name}}</td>
+        <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
+            {{user.age}}</td>
+    </tr>
+</table>
+</div>
+</div>
+</body>
+</html>
